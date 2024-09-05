@@ -8,7 +8,7 @@ const OthersServices = () => {
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold text-turquoise-blue mb-12">Nos Autres Services</h2>
         <p className="text-lg text-gray-700 mb-12">
-          En plus de nos services d'immigration, nous proposons des services dans l'immobilier, les ressources humaines, la formation, et le voyage. Cliquez sur un service pour plus de détails.
+          En plus de nos services d&apos;immigration, nous proposons des services dans l&apos;immobilier, les ressources humaines, la formation, et le voyage. Cliquez sur un service pour plus de détails.
         </p> 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="bg-white p-6 rounded-lg shadow-md text-center">
@@ -45,7 +45,7 @@ const OthersServices = () => {
             <FaPlane className="text-primary-blue text-4xl mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2">Services de Voyage</h3>
             <p className="text-gray-700 mb-4">
-              Réservation de billets d'avion et autres services de voyage pour vos déplacements.
+              Réservation de billets d&apos;avion et autres services de voyage pour vos déplacements.
             </p>
             <Link href="/services/voyage" className="text-turquoise-blue font-bold hover:underline">
               En savoir plus

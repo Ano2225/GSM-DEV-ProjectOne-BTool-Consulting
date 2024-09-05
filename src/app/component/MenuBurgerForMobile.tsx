@@ -39,7 +39,7 @@ export default function MenuBurgerForMobile({ toggleMenu }: { toggleMenu: () => 
                             ))}                            
                         </div>
                         <button>
-                            <Link href="#contact" className="block text-lg font-medium text-white" onClick={toggleMenu}>Nous contactez</Link>
+                            <Link href="/#contact" className="block text-lg font-medium text-white" onClick={toggleMenu}>Nous contactez</Link>
                         </button>
                     </nav>
                 </div>

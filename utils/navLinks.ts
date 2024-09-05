@@ -1,7 +1,7 @@
 export const navLinks = [
-    { href: "#immigration", label: "Immigration" },
-    { href: "#immobilier", label: "Immobilier" },
-    { href: "#rh", label: "RH" },
-    { href: "#voyages", label: "Voyages" },
-    { href: "#formations", label: "Formations" },
+    { href: "/services/immigration", label: "Immigration" },
+    { href: "/services/immobilier", label: "Immobilier" },
+    { href: "/services/rh", label: "RH" },
+    { href: "/services/voyages", label: "Voyages" },
+    { href: "/services/formations", label: "Formations" },
   ];

@@ -13,8 +13,6 @@ export default function Header() {
         setIsOpen(!isOpen);
     };
     
-
-
     return (
         <header className="bg-white shadow-md py-4 fixed top-0 w-full z-20">
             <div className="container mx-auto flex justify-between items-center px-6">

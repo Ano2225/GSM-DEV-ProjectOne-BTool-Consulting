@@ -8,6 +8,7 @@ const ContactForm = () => {
     name: '',
     email: '',
     message: '',
+    tel: '',
   });
 
   const handleChange = (e:any) => {
@@ -29,7 +30,7 @@ const ContactForm = () => {
       <div className="container mx-auto px-6 md:px-12 text-center">
         <h2 className="text-4xl font-bold text-primary-blue mb-8">Nous Contacter</h2>
         <p className="text-lg text-gray-700 mb-8">
-          Vous avez une question ou besoin d'informations supplémentaires ? Remplissez ce formulaire et nous vous répondrons rapidement.
+          Vous avez une question ou besoin d&apos;informations supplémentaires ? Remplissez ce formulaire et nous vous répondrons rapidement.
         </p>
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
           <div className="mb-6">
@@ -49,6 +50,17 @@ const ContactForm = () => {
               name="email"
               placeholder="Votre Email"
               value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <input
+              type="tel"
+              name="tel"
+              placeholder="Votre Numero de telephone"
+              value={formData.tel}
               onChange={handleChange}
               className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
               required

@@ -14,6 +14,7 @@ const Footer = () => {
             width={150}
             height={90}
             src='/assets/logo.webp'
+            className='cursor-pointer'
            />
           </div>
         </div>
@@ -27,13 +28,13 @@ const Footer = () => {
               <Link href="/services/immobilier" className="hover:underline text-white">Services Immobilier</Link>
             </li>
             <li>
-              <Link href="/services/immobilier" className="hover:underline text-white">Services RH</Link>
+              <Link href="/services/rh" className="hover:underline text-white">Services RH</Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:underline text-white">Services Agence de voyage</Link>
+              <Link href="/services/voyages" className="hover:underline text-white">Services Agence de voyage</Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:underline text-white">Formations</Link>
+              <Link href="/services/formations" className="hover:underline text-white">Formations</Link>
             </li>
           </ul>
         </div>

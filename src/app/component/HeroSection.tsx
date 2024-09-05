@@ -12,6 +12,7 @@ const HeroSection = () => {
           layout="fill"
           objectFit="cover"
           quality={100}
+          priority
         />
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
       </div>
@@ -23,7 +24,7 @@ const HeroSection = () => {
           Immigration, Visas, RH, Formations, etc. Un accompagnement professionnel pour vos besoins.
         </p>
         <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4 justify-center">
-          <Link href="#services" className="bg-primary-blue text-white px-6 py-3 rounded-full font-bold hover:bg-secondary-turquoise transition">
+          <Link href="#immigration-services" className="bg-primary-blue text-white px-6 py-3 rounded-full font-bold hover:bg-secondary-turquoise transition">
               Commencez Maintenant
           </Link>
           <Link href="#contact" className="bg-transparent border border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-primary-blue transition">
