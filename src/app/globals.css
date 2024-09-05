@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --primary-blue: #0063B4;
+  --secondary-turquoise: #00B3C6;
+  --light-gray: #F4F4F4;
+  --dark-gray: #2D2D2D;
+  --white: #FFFFFF;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+}
+
+h1, h2, h3 {
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+a {
+  color: var(--secondary-turquoise);
+  text-decoration: none;
+}
+
+button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--secondary-turquoise);
+}
+
+/* Background for cards or sections */
+.section-bg {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
