@@ -12,8 +12,8 @@ const HeroSection = () => {
         <Image 
           src="/assets/hero-background.jpg"
           alt="Background Image"
-          layout="fill"
-          objectFit="cover"
+          fill 
+          style={{ objectFit: 'cover' }} 
           quality={100}
           priority
         />

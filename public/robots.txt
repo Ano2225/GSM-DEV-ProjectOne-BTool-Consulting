@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+
+# Toute reproduction des informations de ce site est interdite.
+# Les contenus publiés sur ce site sont protégés par le droit d'auteur.
+# Pour toute question, veuillez contacter l'administrateur du site.
