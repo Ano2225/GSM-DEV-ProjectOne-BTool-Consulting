@@ -70,7 +70,7 @@ const OthersServices = () => {
             <p className="text-gray-700 mb-4">
               Réservation de billets d&apos;avion et autres services de voyage pour vos déplacements.
             </p>
-            <Link href="/services/voyage" className="text-turquoise-blue font-bold hover:underline">
+            <Link href="/services/voyages" className="text-turquoise-blue font-bold hover:underline">
               En savoir plus
             </Link>
           </motion.div>
