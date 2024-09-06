@@ -1,28 +1,99 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
+import { BeatLoader } from 'react-spinners';
 
 const ContactForm = () => {
-
-  const [formData, setFormData] = useState({
+  const [form, setForm] = useState({
     name: '',
     email: '',
     message: '',
-    tel: '',
+    tel: ''
   });
 
-  const handleChange = (e:any) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    message: '',
+    tel: ''
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value
+    });
   };
 
-  const handleSubmit = (e:any) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    alert('Form submitted!');
+  const validateForm = () => {
+    let formErrors = { name: '', email: '', message: '', tel: '' };
+    let isValid = true;
+
+    if (!form.name) {
+      formErrors.name = 'Le nom est requis';
+      isValid = false;
+    }
+
+    if (!form.email) {
+      formErrors.email = 'L\'email est requis';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(form.email)) {
+      formErrors.email = 'L\'email est invalide';
+      isValid = false;
+    }
+
+    if (!form.tel) {
+      formErrors.tel = 'Le numéro de téléphone est requis';
+      isValid = false;
+    }
+
+    if (!form.message) {
+      formErrors.message = 'Le message est requis';
+      isValid = false;
+    }
+
+    setErrors(formErrors);
+    return isValid;
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!validateForm()) return;
+
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(form)
+      });
+
+      setIsLoading(false);
+
+      if (response.ok) {
+        toast.success('Votre message a bien été envoyé', {
+          className: 'bg-green-600 text-white',
+          progressClassName: 'bg-blue-500'
+        });
+        setForm({ name: '', email: '', message: '', tel: '' });
+        setErrors({ name: '', email: '', message: '', tel: '' });
+      } else {
+        throw new Error('Une erreur s\'est produite lors de l\'envoi de votre message.');
+      }
+    } catch (error: any) {
+      toast.error(error.message, {
+        className: 'bg-red-600 text-white',
+        progressClassName: 'bg-blue-500'
+      });
+    }
   };
 
   return (
@@ -38,51 +109,61 @@ const ContactForm = () => {
               type="text"
               name="name"
               placeholder="Votre Nom"
-              value={formData.name}
+              value={form.name}
               onChange={handleChange}
-              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
-              required
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue ${
+                errors.name ? 'border-red-500' : ''
+              }`}
             />
+            {errors.name && <p className="text-red-500 text-sm text-start">{errors.name}</p>}
           </div>
           <div className="mb-6">
             <input
               type="email"
               name="email"
               placeholder="Votre Email"
-              value={formData.email}
+              value={form.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
-              required
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue ${
+                errors.email ? 'border-red-500' : ''
+              }`}
             />
+            {errors.email && <p className="text-red-500 text-sm text-start">{errors.email}</p>}
           </div>
           <div className="mb-6">
             <input
               type="tel"
               name="tel"
-              placeholder="Votre Numero de telephone"
-              value={formData.tel}
+              placeholder="Votre Numéro de téléphone"
+              value={form.tel}
               onChange={handleChange}
-              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
-              required
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue ${
+                errors.tel ? 'border-red-500' : ''
+              }`}
             />
+            {errors.tel && <p className="text-red-500 text-sm text-start">{errors.tel}</p>}
           </div>
           <div className="mb-6">
             <textarea
               name="message"
               placeholder="Votre Message"
-              value={formData.message}
+              value={form.message}
               onChange={handleChange}
-              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
-              rows="4"
-              required
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue ${
+                errors.message ? 'border-red-500' : ''
+              }`}
+              rows={4}
             />
+            {errors.message && <p className="text-red-500 text-sm text-start">{errors.message}</p>}
           </div>
           <button
             type="submit"
+            disabled={isLoading}
             className="w-full bg-primary-blue text-white py-3 rounded-lg font-bold hover:bg-secondary-turquoise transition"
           >
-            Envoyer
+            {isLoading ? <BeatLoader color="#fff" loading={isLoading} size={12} /> : 'Envoyer'}
           </button>
+          <ToastContainer position="top-center" />
         </form>
       </div>
     </section>

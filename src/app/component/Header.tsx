@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import MenuBurgerForMobile from './MenuBurgerForMobile';
 import { navLinks } from '../../../utils/navLinks';
 
@@ -12,24 +13,26 @@ export default function Header() {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-    
+
     return (
         <header className="bg-white shadow-md py-4 fixed top-0 w-full z-20">
             <div className="container mx-auto flex justify-between items-center px-6">
                 <div className="flex items-center">
-                    <Link href="/" className='cursor-pointer'>
+                    <Link href="/" className="cursor-pointer">
                         <Image
                             src="/assets/logo.webp"
                             alt="B.tool Consulting Logo"
                             width={150}
-                            height={50}
+                            height={80}
                         />
                     </Link>
                 </div>
                 <nav className="hidden lg:flex space-x-8 text-lg font-medium text-gray-700">
                     {navLinks.map((link) => (
-                        <Link href={link.href} key={link.href} className="hover:text-primary-blue">{link.label}</Link>
-                    ))}                    
+                        <Link href={link.href} key={link.href} className="hover:text-primary-blue">
+                            {link.label}
+                        </Link>
+                    ))}
                 </nav>
                 <div className="hidden lg:block">
                     <Link href="#contact" className="bg-primary-blue text-white px-6 py-2 rounded-full font-bold hover:bg-secondary-turquoise transition">
@@ -43,7 +46,17 @@ export default function Header() {
                         <path d="M5 11.5H19V13H5V11.5Z" fill="#1F2328" />
                     </svg>
                 </div>
-                {isOpen && <MenuBurgerForMobile toggleMenu={toggleMenu} />}
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -50 }} 
+                        animate={{ opacity: 1, y: 0 }} 
+                        exit={{ opacity: 0, y: -50 }}
+                        transition={{ duration: 0.2 }} 
+                        className="fixed inset-0 z-30 shadow-lg"
+                    >
+                        <MenuBurgerForMobile toggleMenu={toggleMenu} />
+                    </motion.div>
+                )}
             </div>
         </header>
     );

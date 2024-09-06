@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,7 +19,12 @@ const HeroSection = () => {
         />
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
       </div>
-      <div className="relative z-10 text-center text-white max-w-3xl px-4">
+      <motion.div 
+        className="relative z-10 text-center text-white max-w-3xl px-4"
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        transition={{ duration: 2 }}
+      >
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
           Facilitez Vos Projets Avec Nos Services
         </h1>
@@ -25,13 +33,13 @@ const HeroSection = () => {
         </p>
         <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4 justify-center">
           <Link href="#immigration-services" className="bg-primary-blue text-white px-6 py-3 rounded-full font-bold hover:bg-secondary-turquoise transition">
-              Commencez Maintenant
+            Commencez Maintenant
           </Link>
           <Link href="#contact" className="bg-transparent border border-white text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-primary-blue transition">
-              Contactez un Expert
+            Contactez un Expert
           </Link>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
