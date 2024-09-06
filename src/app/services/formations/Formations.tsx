@@ -118,7 +118,7 @@ const Formations = () => {
 
       <div className="mt-16 text-center">
         <h3 className="text-3xl text-primary-blue font-semibold mb-6">
-          Intéressé par l'une de nos formations ?
+          Intéressé par l&apos;une de nos formations ?
         </h3>
         <p className="text-lg text-gray-700 mb-8">
           Contactez-nous dès maintenant via WhatsApp et parlez avec un conseiller.

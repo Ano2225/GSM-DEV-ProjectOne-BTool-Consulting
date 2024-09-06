@@ -8,7 +8,7 @@ const VoyageAgence = () => {
     <section className="bg-gray-100 pb-16 pt-48">
       <div className='container mx-auto px-6 md:px-12'>
         <h1 className='text-primary-blue text-4xl text-center font-bold mb-12'>
-        Réservation ou Paiement de Billet d'Avion
+        Réservation ou Paiement de Billet d&apos;Avion
         </h1>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>  
           <div className='flex flex-col items-center text-center'>
